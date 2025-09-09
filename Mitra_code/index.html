@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="w-full">
+        <!-- navbar section -->
+        <div class="w-full fixed top-0 bg-blue-600 h-20 p-5">
+            <nav class="w-full flex items-center justify-between">
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-brain text-2xl text-white"></i>
+                    <a class="text-2xl font-bold text-white" href="index.html">Mitra</a>
+                </div>
+                <div class="lg:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="menu" class="hidden lg:flex gap-5">
+                    <a class="text-xl text-white font-semibold" href="Dashboard.php">Carrier Guidence</a>
+                    <a class="text-xl text-white font-semibold" href="loginPage.php">Login</a>
+                    <a class="text-xl text-white font-semibold" href="registerPage.php">Sign up</a>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="hidden flex-col gap-5 mt-5 lg:hidden">
+                <a class="text-xl text-white font-semibold" href="#">About</a>
+                <a class="text-xl text-white font-semibold" href="#">How it Works</a>
+                <a class="text-xl text-white font-semibold" href="#">Carrier Guidence</a>
+                <a class="text-xl text-white font-semibold" href="#">University Guidence</a>
+            </div>
+        </div>
+        <!-- hero/landing section -->
+        <div class="w-full pt-40 flex items-center justify-center flex-col">
+            <div class="flex flex-col">
+                <h1 class="text-[8.5vw] sm:text-[3vw] md:text-[5vw] lg:text-[3.5vw] font-semibold text-center">Carrier
+                    Guidence</h1>
+                <h2 class="text-[5vw] text-center sm:text-[1.8vw] md:text-[3vw] lg:text-[1.8vw] mt-1">Find a path that
+                    excites you — and then build the skills to walk it</h2>
+            </div>
+            <div class="mt-5">
+                <a href="Dashboard.php" class="py-2 px-5 bg-black text-white rounded-md">Get Started</a>
+            </div>
+        </div>
+
+        <!-- how it works -->
+        <div class="p-5 mt-24">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold">How it Works</h1>
+            <!-- cards -->
+            <div class="cards w-full flex gap-5 mt-10 flex-col md:flex-row lg:flex-row">
+                <div class="card w-full md:w-2/6 lg:w-2/6 p-5 border-2 border-gray-200 rounded-md">
+                    <div class="flex items-center justify-center w-fit gap-3">
+                        <i class="fa-solid fa-upload text-2xl"></i>
+                        <h1 class="text-2xl font-medium">Tell Us About Yourself</h1>
+                    </div>
+                    <p class="mt-8 text-lg">
+                        Our intelligent system analyzes your profile to find the best career paths tailored to you.
+                    </p>
+                </div>
+                <div class="card w-full md:w-2/6 lg:w-2/6 p-5 border-2 border-gray-200 rounded-md">
+                    <div class="w-fit flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-brain text-2xl "></i>
+                        <h1 class="text-2xl font-medium">Get Personalized Roadmap</h1>
+                    </div>
+                    <p class="mt-8 text-lg">
+                        Receive a customized career plan with skill recommendations, courses, and industry insights.
+                    </p>
+                </div>
+                <div class="card w-full  md:w-2/6 lg:w-2/6 p-5 border-2 border-gray-200 rounded-md">
+                    <div class="flex items-center justify-center w-fit gap-3">
+                        <i class="fa-regular fa-circle-check text-2xl"></i>
+                        <h1 class="text-2xl font-medium">Get Results</h1>
+                    </div>
+                    <p class="mt-8 text-lg">
+                        Receive a preliminary assessment report within minutes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- uploading MRI scan image section -->
+        <!-- Replace the current upload form section with this career guidance form -->
+        <div class="w-full flex items-center justify-center mt-7">
+            <div class="container w-full md:w-4/5 lg:w-2/3 p-5 rounded-lg border-2 border-gray-200">
+                <h1 class="text-2xl text-center font-medium">Career Guidance</h1>
+                <p class="text-lg text-center mt-5">Fill out this form to receive personalized career recommendations
+                    based on your profile.</p>
+
+                <form class="mt-10 flex flex-col gap-6" action="Dashboard.php" method="post">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h2 class="text-xl font-medium mb-4">Personal Information</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="name" class="block mb-2">Full Name</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full border-2 border-gray-300 p-3 rounded-md" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="block mb-2">Email Address</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full border-2 border-gray-300 p-3 rounded-md" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age" class="block mb-2">Age</label>
+                                <input type="number" id="age" name="age" min="15" max="100"
+                                    class="w-full border-2 border-gray-300 p-3 rounded-md" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="education" class="block mb-2">Highest Education Level</label>
+                                <select id="education" name="education"
+                                    class="w-full border-2 border-gray-300 p-3 rounded-md" required>
+                                    <option value="">Select Education Level</option>
+                                    <option value="high_school">High School</option>
+                                    <option value="diploma">Diploma</option>
+                                    <option value="bachelors">Bachelor's Degree</option>
+                                    <option value="masters">Master's Degree</option>
+                                    <option value="doctorate">Doctorate</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills & Interests -->
+                    <div class="form-section">
+                        <h2 class="text-xl font-medium mb-4">Skills & Interests</h2>
+                        <div class="form-group mb-4">
+                            <label for="skills" class="block mb-2">Top Skills (separate with commas)</label>
+                            <input type="text" id="skills" name="skills"
+                                placeholder="e.g., Programming, Writing, Public Speaking"
+                                class="w-full border-2 border-gray-300 p-3 rounded-md">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="block mb-2">Areas of Interest</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="tech" name="interests[]" value="tech" class="mr-2">
+                                    <label for="tech">Technology</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="business" name="interests[]" value="business"
+                                        class="mr-2">
+                                    <label for="business">Business</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="healthcare" name="interests[]" value="healthcare"
+                                        class="mr-2">
+                                    <label for="healthcare">Healthcare</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="arts" name="interests[]" value="arts" class="mr-2">
+                                    <label for="arts">Arts & Design</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="science" name="interests[]" value="science" class="mr-2">
+                                    <label for="science">Science</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="education" name="interests[]" value="education"
+                                        class="mr-2">
+                                    <label for="education">Education</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Career Aspirations -->
+                    <div class="form-section">
+                        <h2 class="text-xl font-medium mb-4">Career Aspirations</h2>
+                        <div class="form-group mb-4">
+                            <label for="question" class="block mb-2">What would you like guidance on?</label>
+                            <textarea id="question" name="question" rows="3"
+                                placeholder="Describe your career goals, questions, or concerns..."
+                                class="w-full border-2 border-gray-300 p-3 rounded-md" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="work_environment" class="block mb-2">Preferred Work Environment</label>
+                            <select id="work_environment" name="work_environment"
+                                class="w-full border-2 border-gray-300 p-3 rounded-md">
+                                <option value="">Select Preference</option>
+                                <option value="office">Traditional Office</option>
+                                <option value="remote">Remote Work</option>
+                                <option value="hybrid">Hybrid</option>
+                                <option value="field">Field Work</option>
+                                <option value="entrepreneurial">Entrepreneurial</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Hidden field to indicate this is a career guidance form submission -->
+                    <input type="hidden" name="form_type" value="career_guidance">
+
+                    <!-- Submission Button -->
+                    <div class="mt-6 flex justify-center">
+                        <button type="submit"
+                            class="px-8 py-3 bg-blue-600 rounded-md text-white text-lg font-medium hover:bg-blue-700 transition-colors">Get
+                            Career Guidance</button>
+                    </div>
+                </form>
+            </div>
+        </div>
