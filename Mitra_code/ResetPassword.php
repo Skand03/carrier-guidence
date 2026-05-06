@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 // Include database connection
 require_once 'database.php';
 
@@ -160,6 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 </head>
 <body>
+    <?php include 'navbar.php'; ?>
     <div class="container fade-in">
         <div class="app-Header">
             <h1>Reset Password</h1>

@@ -53,7 +53,7 @@ body {
     padding: 20px;
     border-radius: 16px 16px 0 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: center;
     border-bottom: 3px solid var(--accent-color);
 }
@@ -890,7 +890,7 @@ Provide comprehensive information that would help a student make an informed dec
                 <?php endforeach; ?>
                 
             <?php else: ?>
-                <!-- Tabs Section -->
+                <!-- Main System Interface -->
                 <div class="nav-tabs">
                     <div class="nav-tab active" data-tab="career-guidance">
                         <i class="fas fa-compass"></i> Career Guidance
@@ -903,21 +903,40 @@ Provide comprehensive information that would help a student make an informed dec
                     </div>
                 </div>
                 
-                <!-- Career Guidance Tab Content -->
+                <!-- Career Guidance Tab -->
                 <div class="tab-content active" id="career-guidance">
                     <h2><i class="fas fa-lightbulb"></i> Ask for Career Guidance</h2>
                     <p>Get personalized career recommendations based on your interests, skills, and educational background.</p>
                     
                     <form method="POST">
-                        <label for="career-question"><i class="fas fa-question-circle"></i> What would you like guidance on?</label>
+                        <label for="question"><i class="fas fa-question-circle"></i> What would you like guidance on?</label>
+                        
                         <div class="examples">
-                            <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options in Artificial Intelligence?')">AI career options</span>
-                            <span class="example-tag" onclick="fillExample('career-question', 'How can I become a Data Scientist?')">Data Scientist path</span>
-                            <span class="example-tag" onclick="fillExample('career-question', 'What are the top skills for a career in Cybersecurity?')">Cybersecurity skills</span>
-                            <span class="example-tag" onclick="fillExample('career-question', 'After 12th Commerce career options')">After 12th Commerce</span>
-                            <span class="example-tag" onclick="fillExample('career-question', 'How to become a pilot?')">Pilot career</span>
-                        </div>
+                                <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options in Artificial Intelligence?')">AI career options</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'How can I become a Data Scientist?')">Data Scientist path</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'What are the top skills for a career in Cybersecurity?')">Cybersecurity skills</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'What are the career opportunities in Blockchain technology?')">Blockchain careers</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'How to prepare for a career in Finance?')">Finance careers</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options after 12th Commerce?')">After 12th Commerce</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'What are the career opportunities in the gaming industry?')">Gaming careers</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'How to pursue a career in Space Science?')">Space Science careers</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options in the creative arts field?')">Creative arts careers</span>
+                                <span class="example-tag" onclick="fillExample('career-question', 'What are the top career options in Environmental Science?')">Environmental Science careers</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What career paths can I pursue with a computer science degree?')">CS career paths</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What skills should I learn for digital marketing?')">Digital marketing skills</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'How to prepare for a career in healthcare?')">Healthcare careers</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'Which field has better scope - Science, Commerce or Arts?')">Science vs Commerce vs Arts</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options after 12th science with biology?')">After 12th science (Bio)</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What career options exist in the creative field?')">Creative careers</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options in the field of psychology?')">Psychology careers</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What are the top career options in the field of law?')">Law careers</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options in the field of journalism?')">Journalism careers</span>
+                            <span class="example-tag" onclick="fillExample('career-question', 'What are the best career options in the field of hospitality?')">Hospitality careers</span>
+
+                      
+                        
                         <textarea name="question" id="career-question" required placeholder="e.g., Which careers match my interest in mathematics and problem-solving?"></textarea>
+                        
                         <button type="submit" class="btn btn-primary btn-block">
                             <i class="fas fa-search"></i> Get Personalized Guidance
                         </button>
@@ -932,71 +951,127 @@ Provide comprehensive information that would help a student make an informed dec
                     
                     <?php if ($errorMessage): ?>
                         <div class="error">
-                            <strong><i class="fas fa-exclamation-triangle"></i> Error:</strong> 
+                            <strong><i class="fas fa-exclamation-triangle"></i> Error:
+                            
+                            </strong> 
                             <?php echo htmlspecialchars($errorMessage); ?>
                         </div>
                     <?php endif; ?>
                     
                     <?php if ($answer): ?>
-                        <div class="response fade-in">
-                            <h3><i class="fas fa-robot"></i> Career Guidance Result</h3>
-                            <div class="response-content">
-                                <?php
-                                $Parsedown = new Parsedown();
-                                echo $Parsedown->text($answer);
-                                ?>
-                            </div>
-                            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-                                <h4><i class="fas fa-university"></i> Looking for colleges?</h4>
-                                <p>Now that you have career guidance, find the best colleges for your chosen path.</p>
-                                <button onclick="switchToCollegeTab()" class="btn btn-info" style="margin-top: 10px;">
-                                    <i class="fas fa-search"></i> Search for Colleges
-                                </button>
-                            </div>
-                        </div>
-                    <?php endif; ?>
+    <div class="response fade-in">
+        <h3><i class="fas fa-robot"></i> Career Guidance</h3>
+        <div class="response-content">
+            <?php
+            // Include Parsedown
+            require_once 'assets\parsedown-1.7.4\Parsedown.php'; // Update the path if necessary
+
+            // Initialize Parsedown
+            $Parsedown = new Parsedown();
+
+            // Convert Markdown to HTML
+            $formattedAnswer = $Parsedown->text($answer);
+
+            // Output the formatted HTML
+            echo $formattedAnswer;
+            ?>
+
+        
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+            <h4><i class="fas fa-university"></i> Looking for colleges?</h4>
+            <p>Now that you have career guidance, find the best colleges for your chosen path.</p>
+            <button onclick="switchToCollegeTab()" class="btn btn-info" style="margin-top: 10px;">
+                <i class="fas fa-search"></i> Search for Colleges
+            </button>
+        </div>
+    </div>
+<?php endif; ?>
                 </div>
                 
-                <!-- College Search Tab Content -->
+                <!-- College Search Tab -->
                 <div class="tab-content" id="college-search">
                     <h2><i class="fas fa-university"></i> Find the Perfect College</h2>
-                    <p>Search for colleges based on your preferences, field of study, location, or specific names.</p>
+                    <p>Search for colleges based on your preferences, field of study, location, or specific college names.</p>
                     
                     <form method="POST">
-                        <label for="college-search-input"><i class="fas fa-search"></i> Search for Colleges</label>
+                        <label for="college_search"><i class="fas fa-search"></i> Search for Colleges</label>
+                        
                         <div class="examples">
-                            <span class="example-tag" onclick="fillExample('college-search-input', 'Top engineering colleges in India')">Engineering</span>
-                            <span class="example-tag" onclick="fillExample('college-search-input', 'Best medical colleges in Mumbai')">Medical</span>
-                            <span class="example-tag" onclick="fillExample('college-search-input', 'Top MBA colleges in Delhi')">MBA</span>
-                            <span class="example-tag" onclick="fillExample('college-search-input', 'Best arts and science colleges')">Arts & Science</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Top colleges for Artificial Intelligence in India')">AI colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Best colleges for Data Science in India')">Data Science colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Top Tier-1 engineering colleges in India')">Tier-1 engineering colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Best private colleges for MBA in India')">Private MBA colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Top government medical colleges in India')">Govt medical colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Best colleges for Cybersecurity courses')">Cybersecurity colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Top colleges for Blockchain technology in India')">Blockchain colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Best colleges for Space Science and Astronomy')">Space Science colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Top colleges for Environmental Science in India')">Environmental Science colleges</span>
+                                <span class="example-tag" onclick="fillExample('college-search-input', 'Best design colleges in India')">Design colleges</span>
+
+                            <span class="example-tag" onclick="fillExample('college-search-input', 'Top engineering colleges in India')">Top engineering colleges</span>
+                            <span class="example-tag" onclick="fillExample('college-search-input', 'Best colleges for MBA in India')">MBA colleges</span>
+                            <span class="example-tag" onclick="fillExample('college-search-input', 'Top government colleges in India')">Govt colleges</span>
+                            <span class="example-tag" onclick="fillExample('college-search-input', 'Best medical colleges in India')">Medical colleges</span>
+                            <span class="example-tag" onclick="fillExample('college-search-input', 'Top commerce colleges with BBA program')">Commerce colleges</span>
+                            <span class="example-tag" onclick="fillExample('college-search-input', 'Government vs Private colleges for computer science')">Govt vs Private for CS</span>
+                            <span class="example-tag" onclick="fillExample('college-search-input', 'Top Tier-1 colleges for design courses')">Design colleges</span>
                         </div>
+                        
                         <input type="text" name="college_search" id="college-search-input" required placeholder="e.g., IIT Delhi, Top MBA colleges, Best colleges for Psychology...">
+                        
                         <button type="submit" class="btn btn-primary btn-block">
                             <i class="fas fa-search"></i> Search Colleges
                         </button>
                     </form>
                 </div>
                 
-                <!-- About Tab Content -->
+                <!-- About Tab -->
                 <div class="tab-content" id="about">
                     <h2><i class="fas fa-info-circle"></i> About Mitra</h2>
-                    <p>Mitra is your comprehensive AI-powered guidance system designed to help students make informed decisions.</p>
+                    <p>Mitra is your comprehensive AI-powered career and college guidance system designed to help students make informed decisions about their educational and professional journey.</p>
                     
                     <div class="features">
                         <div class="feature-card">
-                            <div class="feature-icon"><i class="fas fa-compass"></i></div>
+                            <div class="feature-icon">
+                                <i class="fas fa-compass"></i>
+                            </div>
                             <h3>Career Guidance</h3>
-                            <p>Get personalized recommendations based on your interests and skills.</p>
+                            <p>Get personalized career recommendations based on your interests, aptitude, and educational background. Explore skills needed, salary ranges, and growth opportunities.</p>
                         </div>
+                        
                         <div class="feature-card">
-                            <div class="feature-icon"><i class="fas fa-university"></i></div>
-                            <h3>College Search</h3>
-                            <p>Find the perfect institution with detailed ratings and insights.</p>
+                            <div class="feature-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h3>College Recommendations</h3>
+                            <p>Find the perfect college with our comprehensive database covering Tier-1, Tier-2, and Tier-3 institutions, both government and private, with detailed ratings and reviews.</p>
+                                                <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Educational Pathway</h3>
+                            <p>Get clear guidance on educational requirements, course recommendations, and entrance exams for your chosen career path.</p>
                         </div>
+                        
                         <div class="feature-card">
-                            <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-                            <h3>Pathways</h3>
-                            <p>Clear guidance on courses, exams, and educational requirements.</p>
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Market Insights</h3>
+                            <p>Access up-to-date information about job market trends, emerging careers, and industries with high growth potential.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <h3>Start Your Journey Today</h3>
+                        <p>Not sure where to begin? Get personalized career guidance or search for your dream college.</p>
+                        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+                            <button onclick="document.querySelector('[data-tab=career-guidance]').click()" class="btn btn-primary">
+                                <i class="fas fa-compass"></i> Career Guidance
+                            </button>
+                            <button onclick="document.querySelector('[data-tab=college-search]').click()" class="btn btn-info">
+                                <i class="fas fa-university"></i> College Search
+                            </button>
                         </div>
                     </div>
                 </div>

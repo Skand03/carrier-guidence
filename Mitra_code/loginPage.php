@@ -1,4 +1,38 @@
-<!DOCTYPE html>
+<?php
+require_once 'database.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    if (empty($email) || empty($password)) {
+        $message = "<div class='error'>❌ Email and Password are required!</div>";
+    } else {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_name'] = $user['name'];
+            header("Location: Dashboard.php");
+            exit();
+        } else {
+            $message = "<div class='error'>❌ Invalid Email or Password!</div>";
+        }
+    }
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -153,42 +187,11 @@ body.loading::before {
 
 </head>
 <body>
+<?php include 'navbar.php'; ?>
 
-<?php
-require_once 'database.php';
+<?php // Login logic moved to top ?>
 
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-$message = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    if (empty($email) || empty($password)) {
-        $message = "<div class='error'>❌ Email and Password are required!</div>";
-    } else {
-        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_assoc();
-
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
-            header("Location: Dashboard.php");
-            exit();
-        } else {
-            $message = "<div class='error'>❌ Invalid Email or Password!</div>";
-        }
-    }
-}
-?>
-
-<div class="container fade-in" style="max-width: 500px; margin-top: 80px;">
+<div class="container fade-in" style="max-width: 500px; margin-top: 20px;">
     <div class="app-header">
         <h1>Welcome Back</h1>
         <p>Login to access your Mitra dashboard</p>

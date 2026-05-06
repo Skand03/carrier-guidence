@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,39 +14,16 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <style>
+        :root {
+            --primary-color: #2563eb; /* Tailwind blue-600 equivalent */
+        }
+    </style>
 </head>
 
 <body>
     <div class="w-full">
-        <!-- navbar section -->
-        <div class="w-full fixed top-0 bg-blue-600 h-20 p-5">
-            <nav class="w-full flex items-center justify-between">
-                <div class="flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-brain text-2xl text-white"></i>
-                    <a class="text-2xl font-bold text-white" href="index.html">Mitra</a>
-                </div>
-                <div class="lg:hidden">
-                    <button id="menu-btn" class="text-white focus:outline-none">
-                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-                <div id="menu" class="hidden lg:flex gap-5">
-                    <a class="text-xl text-white font-semibold" href="Dashboard.php">Carrier Guidence</a>
-                    <a class="text-xl text-white font-semibold" href="loginPage.php">Login</a>
-                    <a class="text-xl text-white font-semibold" href="registerPage.php">Sign up</a>
-                </div>
-            </nav>
-            <div id="mobile-menu" class="hidden flex-col gap-5 mt-5 lg:hidden">
-                <a class="text-xl text-white font-semibold" href="#">About</a>
-                <a class="text-xl text-white font-semibold" href="#">How it Works</a>
-                <a class="text-xl text-white font-semibold" href="#">Carrier Guidence</a>
-                <a class="text-xl text-white font-semibold" href="#">University Guidence</a>
-            </div>
-        </div>
+        <?php include 'navbar.php'; ?>
         <!-- hero/landing section -->
         <div class="w-full pt-40 flex items-center justify-center flex-col">
             <div class="flex flex-col">

@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .container {
             max-width: 500px;
-            margin: 80px auto;
+            margin: 20px auto;
             padding: 20px;
         }
 
@@ -175,6 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </style>
 </head>
 <body>
+    <?php include 'navbar.php'; ?>
     <div class="container fade-in">
         <div class="app-header">
             <h1>Create an Account</h1>
